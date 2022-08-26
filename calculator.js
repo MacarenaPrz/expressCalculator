@@ -28,7 +28,24 @@ app.post("/", (req, res) => {
     let resultado = num1 + num2;
 
     res.send('El resultado es ' + resultado);
+});
+
+//BMI calculator
+
+//get
+app.get('/bmiCalculator', (req, res) => {
+    res.sendFile(__dirname + '/bmiCalculator.html');
 })
 
+//post
+app.post('/bmiCalculator', (req, res)=> {
+    let weight = parseFloat(req.body.weight);
+    let height = parseFloat(req.body.height);
+
+    let bmi = weight / (height * height);
+
+    res.send('Tu IMC es ' + bmi);
+
+})
 
 
